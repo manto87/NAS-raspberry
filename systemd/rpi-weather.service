@@ -1,0 +1,16 @@
+[Unit]
+Description=Raspberry Pi Weather Collector
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/NAS-raspberry
+ExecStart=/home/pi/NAS-raspberry/.venv/bin/python -m weather.collector
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

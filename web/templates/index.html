@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row g-3">
+
+  <!-- System stats bar -->
+  <div class="col-12">
+    <div class="card pi-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">System</span>
+        <span class="badge bg-success" id="system-badge">online</span>
+      </div>
+      <div class="card-body">
+        <div class="row text-center g-2">
+          <div class="col-4">
+            <div class="label">CPU</div>
+            <div class="stat-val" id="cpu-pct">—</div>
+          </div>
+          <div class="col-4">
+            <div class="label">Memory</div>
+            <div class="stat-val" id="mem-pct">—</div>
+          </div>
+          <div class="col-4">
+            <div class="label">Pi Temp</div>
+            <div class="stat-val" id="cpu-temp">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAS -->
+  <div class="col-lg-6">
+    <div class="card pi-card h-100">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">NAS / Storage</span>
+        <span class="badge" id="samba-badge">checking…</span>
+      </div>
+      <div class="card-body" id="nas-disks">
+        <span class="text-secondary small">Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weather -->
+  <div class="col-lg-6">
+    <div class="card pi-card h-100">
+      <div class="card-header">
+        <span class="fw-semibold">Weather Station</span>
+      </div>
+      <div class="card-body">
+        <div class="row text-center g-2 mb-3">
+          <div class="col-4">
+            <div class="label">Temperature</div>
+            <div class="stat-val text-warning" id="wx-temp">—</div>
+          </div>
+          <div class="col-4">
+            <div class="label">Humidity</div>
+            <div class="stat-val text-info" id="wx-hum">—</div>
+          </div>
+          <div class="col-4">
+            <div class="label">Pressure</div>
+            <div class="stat-val text-success" id="wx-pres">—</div>
+          </div>
+        </div>
+        <canvas id="weather-chart" height="90"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Irrigation -->
+  <div class="col-12">
+    <div class="card pi-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">Irrigation</span>
+        <span class="badge bg-secondary" id="irrigation-badge">disabled</span>
+      </div>
+      <div class="card-body" id="irrigation-zones">
+        <span class="text-secondary small">Irrigation hardware not yet connected. Set <code>enabled: true</code> in config.yaml when ready.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

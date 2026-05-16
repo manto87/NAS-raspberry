@@ -1,0 +1,16 @@
+[Unit]
+Description=Raspberry Pi Home Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/NAS-raspberry
+ExecStart=/home/pi/NAS-raspberry/.venv/bin/python web/app.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

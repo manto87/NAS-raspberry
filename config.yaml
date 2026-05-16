@@ -1,0 +1,37 @@
+nas:
+  workgroup: WORKGROUP
+  server_name: raspberrypi
+  shares:
+    - name: media
+      path: /mnt/nas/media
+      writable: true
+      valid_users: "@nasusers"
+    - name: backup
+      path: /mnt/nas/backup
+      writable: true
+      valid_users: "@nasusers"
+
+weather:
+  # Options: mock | dht22 | bme280
+  sensor: mock
+  interval: 60              # seconds between readings
+  dht_gpio_pin: 4           # GPIO BCM pin for DHT22/DHT11
+  bme280_i2c_address: "0x76"
+  db_path: data/weather.db
+
+irrigation:
+  enabled: false            # set true when hardware is connected
+  zones:
+    - id: 1
+      name: Front Garden
+      gpio_pin: 17
+      duration: 600         # default run time in seconds
+    - id: 2
+      name: Back Garden
+      gpio_pin: 27
+      duration: 600
+
+web:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false

@@ -1,0 +1,8 @@
+Flask>=2.3.0
+psutil>=5.9.0
+PyYAML>=6.0
+
+# Uncomment when sensor hardware is connected:
+# Adafruit-DHT>=1.4.0
+# adafruit-circuitpython-bme280>=2.6.0
+# RPi.GPIO>=0.7.1
