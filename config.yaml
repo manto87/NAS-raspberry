@@ -12,10 +12,12 @@ nas:
       valid_users: "@nasusers"
 
 weather:
-  # Options: mock | dht22 | bme280
-  sensor: mock
-  interval: 60              # seconds between readings
-  dht_gpio_pin: 4           # GPIO BCM pin for DHT22/DHT11
+  # Options: openmeteo | mock | dht22 | bme280
+  sensor: openmeteo
+  latitude: 45.47
+  longitude: 11.18
+  interval: 600             # seconds between readings (10 min is enough for a public API)
+  dht_gpio_pin: 4           # GPIO BCM pin for DHT22/DHT11 (used when sensor: dht22)
   bme280_i2c_address: "0x76"
   db_path: data/weather.db
 
