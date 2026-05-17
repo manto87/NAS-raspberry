@@ -1,4 +1,9 @@
 import logging
+import sys
+from pathlib import Path
+
+# Ensure project root is on the path regardless of how this script is invoked
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import yaml
 from flask import Flask, abort, jsonify, render_template, request
