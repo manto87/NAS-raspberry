@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Manage Samba users. Run as root."""
 import getpass
+import os
 import subprocess
 import sys
 
@@ -30,7 +31,7 @@ def remove_user(username: str):
 
 
 if __name__ == "__main__":
-    if sys.geteuid() != 0:
+    if os.geteuid() != 0:
         sys.exit("Run as root: sudo python3 nas/users.py")
 
     if len(sys.argv) < 3 or sys.argv[1] not in ("add", "remove"):

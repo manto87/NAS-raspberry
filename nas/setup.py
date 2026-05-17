@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Configure Samba shares from config.yaml. Run as root."""
+import os
 import sys
 import subprocess
 from pathlib import Path
@@ -58,6 +59,6 @@ def setup(config_path: str = "config.yaml"):
 
 
 if __name__ == "__main__":
-    if sys.geteuid() != 0:
+    if os.geteuid() != 0:
         sys.exit("Run as root: sudo python3 nas/setup.py")
     setup()
